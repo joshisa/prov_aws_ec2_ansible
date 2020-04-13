@@ -10,6 +10,7 @@
     - name: Provision {{ ec2_count }} instances with tag {{ ec2_tag_Role }}
       local_action:
         module: ec2
+        name: "aws-ec2-demo"
         key_name: "{{ ec2_keypair }}"
         group_id: "{{ ec2_security_group_id }}"
         instance_type: "{{ ec2_instance_type }}"
