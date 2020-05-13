@@ -13,7 +13,7 @@
         key_name: "{{ ec2_keypair }}"
         vpc_subnet_id: "{{ ec2_subnet_id }}"
         instance_type: "{{ ec2_instance_type }}"
-        instance_profile_name: "sanjay_aws_ec2_demo"
+        instance_profile_name: "{{ ec2_tag_Role }}"
         group: "{{ ec2_security_group_id }}"
         assign_public_ip: true
         image: "{{ ec2_image }}"
