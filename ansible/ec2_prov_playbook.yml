@@ -14,13 +14,11 @@
         vpc_subnet_id: "{{ ec2_subnet_id }}"
         instance_type: "{{ ec2_instance_type }}"
         instance_profile_name: "sanjay-aws-ec2-demo"
-        security_group: "{{ ec2_security_group_id }}"
+        group: "{{ ec2_security_group_id }}"
         assign_public_ip: true
         image: "{{ ec2_image }}"
-        tags:
-          Environment: Testing
         region: "{{ ec2_region }}"
-        instance_tags: '{"Type":"{{ec2_instance_type}}", "Role":"{{ec2_tag_Role}}"}'
+        instance_tags: '{"Type":"{{ec2_instance_type}}", "Role":"{{ec2_tag_Role}}","Environment":"Testing"}'
         wait: true
         exact_count: "{{ ec2_count }}"
         count_tag:
