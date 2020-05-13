@@ -10,14 +10,13 @@
     - name: Provision {{ ec2_count }} instances with tag {{ ec2_tag_Role }}
       local_action:
         module: ec2
-        name: "sanjay-aws-ec2-demo"
         key_name: "{{ ec2_keypair }}"
         vpc_subnet_id: "{{ ec2_subnet_id }}"
         instance_type: "{{ ec2_instance_type }}"
+        instance_profile_name: "sanjay-aws-ec2-demo"
         security_group: "{{ ec2_security_group_id }}"
-        network:
-          assign_public_ip: true
-        image_id: "{{ ec2_image }}"
+        assign_public_ip: true
+        image: "{{ ec2_image }}"
         tags:
           Environment: Testing
         region: "{{ ec2_region }}"
