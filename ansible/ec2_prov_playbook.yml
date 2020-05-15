@@ -18,7 +18,7 @@
         assign_public_ip: true
         image: "{{ ec2_image }}"
         region: "{{ ec2_region }}"
-        instance_tags: '{"Type":"{{ ec2_instance_type }}", "Role":"{{ ec2_tag_Role }}","Environment":"Testing","Name":"{{ ec2_name }}-{{ lookup( \'password\', \'/dev/null length=6\' ) | to_uuid }}"}'
+        instance_tags: '{"Type":"whatever", "Role":"role","Environment":"Testing","Name":"foobar-{{ lookup( ''password'', ''/dev/null length=30'' ) | to_uuid | regex_search(''[a-f0-9]{8}\-[a-f0-9]{4}'') }}"}'
         wait: true
         exact_count: "{{ ec2_count }}"
         count_tag:
